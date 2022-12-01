@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Изучение основ HTML5 для новичков" />
+    <title>HTML5 это просто!</title>
+  </head>
+
+  <div>
+    <div>
+      <div 
+      class = "picture"
+      id = "picture"
+      onclick = "clickHandler()"
+      onmouseenter="moveHandlerEnter(event)"
+      >
+      <img src = "2.jpeg" alt=":(">
+    </div>
+  </div>
+
+  <div>
+    <div 
+      class = "my_name"
+     onmouseout="moveHandlerOut(event)"
+    >
+      <font face = "Arial">
+        Иванов Данила
+      </font>
+    </div>
+  </div>
+
+    <div class = "born" id = "born"><font face = "Calibri Light">17.03.2003</font></div>
+    <div class = "study"><i>Учится в ОмГУ им. Ф.М. Достоевского</i></div>
+    <div class = "group" id = "group"><font face = "Arial Black"><i>Группа МББ-101-О1</i></font></div>  
+  </div>
+
+  <div>
+    <input 
+      onchange="changeHandler(event)"
+    />
+  </div>
+
+<style> 
+    .my_name {
+        display: flex;
+        justify-content: right;
+        font-size: 50px;
+        color: rgb(226, 165, 43);
+        background-color: rgb(104, 227, 22);
+    }
+    .born {
+        display: flex;
+        justify-content: center;
+        color: orange;
+        background-color: red;
+        font-size: 127px;
+        
+    }
+    .study {
+        display: flex;
+        justify-content: left;
+        color: rgb(27, 11, 239);
+        background-color: rgb(187, 30, 155);
+        font-weight: 700;
+        font-size: 20px;
+    }
+    .group {
+        display: flex;
+        color: rgb(0, 0, 0);
+        justify-content: center;
+       /* background-color: rgb(0, 225, 255);*/
+        font-weight: 500;
+    }
+    .picture {
+      cursor: pointer;
+      display: flex;
+      justify-content: right;
+    }
+    
+  </style>
+
+<script>
+
+  function clickHandler() {
+    alert("НЕ ЛЕЗЬ! ОНА ТЕБЯ СОЖРЕТ!");
+  } 
+  function moveHandlerEnter(event) {
+    console.log("event", event);
+  }
+  function moveHandlerOut(event) {
+    console.log("event", event);
+  }
+  function changeHandler(event) {
+    console.log("event", event.target.value);
+    let element = document.getElementById("born");
+    element.innerHTML = event.target.value;
+  }
+
+  let getNum = function() {return Math.floor(Math.random() * 256)};
+      
+      setInterval(function() {
+        document.getElementById("group").style.backgroundColor = 'rgb(' + getNum() + ',' + getNum() + ',' + getNum() + ')';
+      }, 1000);
+      
+ </script>
+
+</html>
